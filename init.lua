@@ -11,11 +11,12 @@ vim.o.tabstop = 2
 vim.o.softtabstop = 2
 vim.o.shiftwidth = 2
 vim.o.scl = 'yes:2'
+vim.o.background = 'dark'
 -- vim.g.winbar = '%f'
 -- vim.g.laststatus = 3
 vim.g.cursorhold_updatetime = 100
 vim.g.nvcode_termcolors = 256
-vim.g.mapleader = ','
+vim.g.mapleader = ' '
 vim.g.border_style = 'rounded'
 
 
@@ -38,7 +39,6 @@ keymap('', '<C-j>', '5j', { desc = 'Go down five lines' })
 keymap('', '<C-k>', '5k', { desc = 'Go up five lines' })
 keymap('', '<Leader>h', ':HopWord<CR>', { desc = 'Magic word picking' })
 keymap('', '<Leader>gg', ':lua DiffviewToggle()<cr>', { desc = 'Show git diff' })
-keymap('', ' ', '/', { desc = 'Easy search' })
 
 vim.cmd('cabb Wq wq')
 vim.cmd('cabb Qa qa')
@@ -51,7 +51,7 @@ require("functions")
 require("nvim-autopairs").setup {}
 require("toggleterm-config")
 require("completion")
-require("barbar")
+-- require("barbar")
 require("nvim-tree-config")
 require("lualine-config")
 require("telescope-config")
@@ -76,10 +76,16 @@ require('mason').setup {}
 require('mason-lspconfig').setup {}
 require('nvim-surround').setup {}
 require('Comment').setup {}
+require('bufferline-config')
+require('go').setup {}
+require("go.format").goimport {}
 -- require('material-config')
 -- vim.g.material_style = 'darker'
 -- require('material').setup({
 -- 	lualine_style = 'default',
 -- })
 -- vim.cmd 'colorscheme material'
+--
+
+vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').goimport() ]], false)
 vim.cmd [[colorscheme onedark]]

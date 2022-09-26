@@ -60,11 +60,13 @@ return require('packer').startup(function(use)
 			require('Comment').setup()
 		end
 	}
-	use 'romgrk/barbar.nvim'
+	-- use 'romgrk/barbar.nvim'
 	use 'EdenEast/nightfox.nvim'
 	use 'rebelot/kanagawa.nvim'
 	use 'williamboman/mason.nvim'
 	use 'williamboman/mason-lspconfig.nvim'
 	use 'shaunsingh/moonlight.nvim'
+	use 'ray-x/go.nvim'
+	use 'ray-x/guihua.lua'
 
 end)

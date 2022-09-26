@@ -69,7 +69,7 @@ lspconfig.sumneko_lua.setup({
 	on_attach = on_attach,
 	settings = {
 		Lua = {
-			runtime = { verison = 'LuaJIT', path = runtime_path },
+			runtime = { version = 'LuaJIT', path = runtime_path },
 			diagnostics = { globals = { 'vim' } },
 			workspace = {
 				library = {
@@ -103,6 +103,10 @@ lspconfig.jsonls.setup {
 
 
 lspconfig.html.setup {
+	capabilities = capabilities,
+}
+
+lspconfig.gopls.setup {
 	capabilities = capabilities,
 }
 
